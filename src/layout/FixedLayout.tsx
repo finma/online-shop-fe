@@ -11,7 +11,7 @@ export const FixedLayout: CustomLayout = (page) => {
   return (
     <div className="grid grid-rows-[auto,1fr,auto] mx-auto max-w-screen-md min-h-screen">
       <Header />
-      <main className="bg-blue-300">
+      <main className="">
         <LayoutErrorBoundary>{page}</LayoutErrorBoundary>
       </main>
       <Footer />
