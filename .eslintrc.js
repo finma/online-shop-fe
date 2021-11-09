@@ -32,7 +32,7 @@ module.exports = {
         checkInlineFunction: true,
       },
     ],
-    "react/destructuring-assignment": ["error", "never"],
+    "react/destructuring-assignment": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/newline-after-import": "error",
