@@ -1,13 +1,27 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 export interface ProductTypes {
-  id: number;
-  slug: string;
-  name: string;
-  stock: number;
-  price: number;
+  category_id: number;
+  created_at: string;
   description: string;
-  category: string;
+  id: number;
   image: string;
+  name: string;
+  price: number;
+  slug: string;
+  stock: number;
+  updated_at: string;
+  category?: CategoryTypes;
+}
+
+export interface PaymentTypes {
+  bank_name: string;
+  created_at: string;
+  id: number;
+  name: string;
+  no_rekening: string;
+  slug: string;
+  type: string;
+  updated_at: string;
 }
 
 export interface CategoryTypes {

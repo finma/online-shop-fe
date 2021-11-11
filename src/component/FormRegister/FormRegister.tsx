@@ -1,21 +1,48 @@
+/* eslint-disable react/jsx-handler-names */
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useState } from "react";
+import { setRegister } from "src/services/auth";
 
 export const FormRegister = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const router = useRouter();
+
+  const handleSubmit = async () => {
+    const data = new FormData();
+
+    data.append("name", name);
+    data.append("email", email);
+    data.append("password", password);
+
+    await setRegister(data);
+
+    router.push("/login");
+  };
+
   return (
     <div className="flex flex-col py-8 px-4 sm:px-6 md:px-8 lg:px-10 w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow">
       <div className="self-center text-xl sm:text-2xl font-light text-gray-600 dark:text-white">Daftar Akun</div>
       <div className="mt-8">
-        <form action="#" autoComplete="off">
+        <form>
           <div className="flex flex-col mb-2">
             <div className=" flex relative">
               <span className="inline-flex items-center px-3 text-sm text-gray-500 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
               </span>
               <input
                 type="text"
-                id="sign-in-email"
+                id="name"
+                name="name"
+                value={name}
+                onChange={(e) => {
+                  return setName(e.target.value);
+                }}
                 className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-2 focus:ring-blue-600 shadow-sm appearance-none focus:outline-none"
                 placeholder="Nama"
               />
@@ -36,7 +63,12 @@ export const FormRegister = () => {
               </span>
               <input
                 type="text"
-                id="sign-in-email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={(e) => {
+                  return setEmail(e.target.value);
+                }}
                 className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-2 focus:ring-blue-600 shadow-sm appearance-none focus:outline-none"
                 placeholder="Email"
               />
@@ -57,7 +89,12 @@ export const FormRegister = () => {
               </span>
               <input
                 type="password"
-                id="sign-in-email"
+                id="password"
+                name="password"
+                value={password}
+                onChange={(e) => {
+                  return setPassword(e.target.value);
+                }}
                 className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-2 focus:ring-blue-600 shadow-sm appearance-none focus:outline-none"
                 placeholder="Password"
               />
@@ -65,7 +102,8 @@ export const FormRegister = () => {
           </div>
           <div className="flex w-full">
             <button
-              type="submit"
+              onClick={handleSubmit}
+              type="button"
               className=" py-2 px-4 w-full text-base font-semibold text-center text-white bg-blue-600 hover:bg-blue-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none"
             >
               Daftar

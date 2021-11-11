@@ -1,0 +1,4 @@
+.payment input[type="radio"]:checked + .detail-payment {
+  border: 2px solid #3b82f6;
+  backgroud-color: #f3f4f6;
+}

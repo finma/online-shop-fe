@@ -1,4 +1,5 @@
 import type { VFC } from "react";
+import { Auth } from "src/component/Auth/Auth";
 
 /**
  * @package
@@ -18,20 +19,6 @@ export const Header: VFC = () => {
             className="flex-grow px-4 text-sm rounded-lg ring-white focus:ring-blue-500 focus:outline-none"
           />
         </span>
-        {/* <div className="flex flex-row-reverse text-white mr-4 ml-4 md:hidden">
-        <button>
-          <svg
-            width="20"
-            height="20"
-            fill="currentColor"
-            className="h-8 w-8"
-            viewBox="0 0 1792 1792"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M1664 1344v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45zm0-512v128q0 26-19 45t-45 19h-1408q-26 0-45-19t-19-45v-128q0-26 19-45t45-19h1408q26 0 45 19t19 45z"></path>
-          </svg>
-        </button>
-      </div> */}
         <div className="hidden md:flex justify-end items-center space-x-6 w-1/5">
           <a
             href="/cart"
@@ -52,20 +39,7 @@ export const Header: VFC = () => {
               />
             </svg>
           </a>
-          <div className="space-x-2">
-            <a
-              href="/login"
-              className="py-2 px-4 w-full text-sm font-semibold text-center text-blue-700 bg-white rounded-lg border-blue-700 focus:ring-2 focus:ring-offset-2 shadow-md transition duration-200 ease-in focus:outline-none hover:bg-grey-100"
-            >
-              Masuk
-            </a>
-            <a
-              href="/register"
-              className=" py-2 px-4 w-full text-sm font-semibold text-center text-white bg-blue-600 hover:bg-blue-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none"
-            >
-              Daftar
-            </a>
-          </div>
+          <Auth />
         </div>
       </div>
     </div>
