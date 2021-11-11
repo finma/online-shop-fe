@@ -40,3 +40,10 @@ export interface TransactionTypes {
   customer: string;
   status: string;
 }
+
+export interface CheckoutTypes {
+  product_id: number;
+  payment_id: number;
+  total_item: number;
+  total_price: number;
+}

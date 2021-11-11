@@ -24,8 +24,6 @@ export const ShoppingDetail = (props: { product: any }) => {
   const getPaymentList = useCallback(async () => {
     const res = await getPayments();
 
-    // console.log(res);
-
     setPayments(res.data);
   }, []);
 
@@ -68,7 +66,8 @@ export const ShoppingDetail = (props: { product: any }) => {
     };
 
     localStorage.setItem("transaction", JSON.stringify(data));
-    // console.log("data", data);
+
+    router.push("/checkout");
   };
 
   return (
