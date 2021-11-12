@@ -9,6 +9,7 @@ import { CartProvider } from "react-use-cart";
 import theme from "../../theme/theme";
 
 const App = (props: CustomAppProps) => {
+  const { Component, pageProps } = props;
   const getLayout =
     props.Component.getLayout ||
     ((page) => {
@@ -22,7 +23,7 @@ const App = (props: CustomAppProps) => {
           <Head>
             <title>nexst</title>
           </Head>
-          {getLayout(<props.Component {...props.pageProps} />)}
+          {getLayout(<Component {...pageProps} />)}
         </CartProvider>
       </ThemeProvider>
     </>

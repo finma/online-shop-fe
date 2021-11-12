@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-handler-names */
+import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { setLogin } from "src/services/auth";
+
+import { setLogin } from "../../services/auth";
 
 export const FormLogin = () => {
   const [email, setEmail] = useState("");
@@ -27,6 +29,7 @@ export const FormLogin = () => {
       const tokenBase64 = Buffer.from(token, "binary").toString("base64");
 
       localStorage.setItem("token", tokenBase64);
+      Cookies.set("token", tokenBase64);
       router.push("/");
     }
   };

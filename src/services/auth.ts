@@ -30,3 +30,13 @@ export const setLogout = async (token: any) => {
 
   return res.data;
 };
+
+export const getUser = async (token: any) => {
+  const url = `${ROOT_API}/auth/user`;
+  const headers = { Authorization: token };
+  const res = await axios({ url, method: "GET", headers }).catch((err: { response: any }) => {
+    return err.response;
+  });
+
+  return res.data;
+};
