@@ -10,7 +10,6 @@ export const Category = () => {
   const getCategoriesList = useCallback(async () => {
     const res = await getCategories();
 
-    // console.log(res);
     setCategories(res.data);
   }, []);
 

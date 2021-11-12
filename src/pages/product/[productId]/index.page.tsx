@@ -37,9 +37,7 @@ const Index = (props: { product: ProductTypes }) => {
 Index.getLayout = FluidLayout;
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  // console.log(req);
   const res = await getProductDetail(params?.productId);
-  // const data = JSON.stringify(res.data);
 
   return {
     props: {

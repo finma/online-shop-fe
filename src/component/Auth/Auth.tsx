@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -11,12 +12,11 @@ export const Auth = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const tokenFromLocal = localStorage.getItem("token");
+    const tokenFromLocal = Cookies.get("token");
 
     if (tokenFromLocal) {
       const token = Buffer.from(tokenFromLocal, "base64").toString("binary");
 
-      // console.log(token);
       setToken(token);
       setIsLogin(true);
     }
@@ -28,7 +28,7 @@ export const Auth = () => {
 
   const handleLogout = async () => {
     await setLogout(token);
-    localStorage.removeItem("token");
+    Cookies.remove("token");
     router.push("/");
     setIsLogin(false);
   };

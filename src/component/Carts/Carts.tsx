@@ -5,7 +5,6 @@ import { Cart } from "./Cart";
 export const Carts = () => {
   const { items } = useCart();
 
-  // console.log(items);
   return (
     <div className="m-auto w-2/3">
       <h1 className="mt-8 mb-8 text-2xl font-bold text-gray-700">Keranjang</h1>

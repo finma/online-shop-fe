@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable react/jsx-handler-names */
+import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { setTransaction } from "src/services/transaction";
@@ -12,7 +13,7 @@ export const ChekoutConfirmation = () => {
   const router = useRouter();
 
   useEffect(() => {
-    const tokenFromLocal = localStorage.getItem("token");
+    const tokenFromLocal = Cookies.get("token");
 
     if (tokenFromLocal) {
       const token = Buffer.from(tokenFromLocal, "base64").toString("binary");

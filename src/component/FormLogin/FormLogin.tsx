@@ -12,10 +12,6 @@ export const FormLogin = () => {
 
   const router = useRouter();
 
-  // useEffect(() => {
-
-  // }, []);
-
   const handleLogin = async () => {
     const data = new FormData();
 
@@ -28,7 +24,6 @@ export const FormLogin = () => {
       const token = `${result.content.token_type} ${result.content.access_token}`;
       const tokenBase64 = Buffer.from(token, "binary").toString("base64");
 
-      localStorage.setItem("token", tokenBase64);
       Cookies.set("token", tokenBase64);
       router.push("/");
     }
