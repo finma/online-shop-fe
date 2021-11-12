@@ -1,10 +1,20 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 import cx from "classnames";
 import Image from "next/image";
 import NumberFormat from "react-number-format";
-import type { TransactionTypes } from "src/type/types";
+import type { CategoryTypes, ProductTypes } from "src/type/types";
 
-export const TableRow = (props: TransactionTypes) => {
-  const { id, product, total_item, total_price, status } = props;
+interface TableRowProps {
+  id: number;
+  total_item: number;
+  total_price: number;
+  status: string;
+  product: ProductTypes;
+  category: CategoryTypes;
+}
+
+export const TableRow = (props: TableRowProps) => {
+  const { id, product, total_item, total_price, status, category } = props;
   const API_IMG = process.env.NEXT_PUBLIC_IMG;
   const src = `${API_IMG}/${product.image}`;
   const classStatus = cx({
@@ -38,7 +48,7 @@ export const TableRow = (props: TransactionTypes) => {
         </div>
       </td>
       <td className="py-4 px-6 whitespace-nowrap">
-        <div className="text-base text-gray-900">{product.category_id}</div>
+        <div className="text-base text-gray-900">{category.name}</div>
       </td>
       <td className="py-4 px-6 whitespace-nowrap">
         <div className="text-base text-gray-900">

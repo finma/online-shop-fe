@@ -32,6 +32,7 @@ export interface CategoryTypes {
 
 export interface TransactionTypes {
   product: ProductTypes;
+  category: CategoryTypes;
   id: number;
   product_id?: number;
   payment_id?: number;

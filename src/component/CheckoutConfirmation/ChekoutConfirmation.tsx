@@ -24,9 +24,10 @@ export const ChekoutConfirmation = () => {
   const handleSubmit = async () => {
     const dataFromLocal = localStorage.getItem("transaction");
     const data = JSON.parse(dataFromLocal!);
-    const { product_id, payment_id, total_item, total_price } = data.transaction;
+    const { product_id, payment_id, total_item, total_price, category_id } = data.transaction;
     const transaction = {
       product_id,
+      category_id,
       total_item,
       total_price,
       payment_id: payment_id.id,

@@ -61,6 +61,7 @@ export const ShoppingDetail = (props: { product: any }) => {
         payment_id: paymentId,
         total_item: counter,
         total_price: price,
+        category_id: product.category_id,
       },
       product,
     };

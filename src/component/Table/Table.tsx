@@ -43,6 +43,7 @@ export const Table = (props: { transactions: Array<TransactionTypes> }) => {
                       key={transaction.id}
                       id={transaction.id}
                       product={transaction.product}
+                      category={transaction.category}
                       total_item={transaction.total_item}
                       total_price={transaction.total_price}
                       status={transaction.status}
