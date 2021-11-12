@@ -14,3 +14,14 @@ export const setTransaction = async (data: CheckoutTypes, token: any) => {
 
   return res.data;
 };
+
+export const getTransactions = async (token: any) => {
+  const url = `${ROOT_API}/checkout/transactions`;
+  const headers = { Authorization: token };
+
+  const res = await axios({ url, method: "GET", headers }).catch((err: { response: any }) => {
+    return err.response;
+  });
+
+  return res.data;
+};

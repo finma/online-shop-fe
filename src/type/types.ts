@@ -31,13 +31,14 @@ export interface CategoryTypes {
 }
 
 export interface TransactionTypes {
+  product: ProductTypes;
   id: number;
-  product_id: number;
-  payment_id: number;
-  slug: string;
+  product_id?: number;
+  payment_id?: number;
+  slug?: string;
   total_item: number;
   total_price: number;
-  customer: string;
+  customer?: string;
   status: string;
 }
 

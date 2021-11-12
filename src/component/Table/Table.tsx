@@ -1,69 +1,59 @@
-import Paper from "@mui/material/Paper";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-// import * as React from "react";
+import type { TransactionTypes } from "src/type/types";
 
-// function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
-//   return { name, calories, fat, carbs, protein };
-// }
+import { TableRow } from "./TableRow";
 
-const rows = [
-  {
-    product: "Baju",
-    category: "Baju",
-    totalBarang: 8,
-    totalHarga: 30000,
-    status: "pending",
-  },
-  {
-    product: "Baju",
-    category: "Baju",
-    totalBarang: 8,
-    totalHarga: 30000,
-    status: "pending",
-  },
-  {
-    product: "Baju",
-    category: "Baju",
-    totalBarang: 8,
-    totalHarga: 30000,
-    status: "pending",
-  },
-];
+export const Table = (props: { transactions: Array<TransactionTypes> }) => {
+  const { transactions } = props;
 
-export const DataTable = () => {
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Nama Produk</TableCell>
-            <TableCell align="right">Kategori</TableCell>
-            <TableCell align="right">Total Barang</TableCell>
-            <TableCell align="right">Total Harga </TableCell>
-            <TableCell align="right">Status</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row, i) => {
-            return (
-              <TableRow key={i} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                <TableCell component="th" scope="row">
-                  {row.product}
-                </TableCell>
-                <TableCell align="right">{row.category}</TableCell>
-                <TableCell align="right">{row.totalBarang}</TableCell>
-                <TableCell align="right">{row.totalHarga}</TableCell>
-                <TableCell align="right">{row.status}</TableCell>
-              </TableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div className="flex flex-col">
+      <div className="overflow-x-auto -my-2 sm:-mx-6 lg:-mx-8">
+        <div className="inline-block py-2 sm:px-6 lg:px-8 min-w-full align-middle">
+          <div className="overflow-hidden sm:rounded-lg border-b border-gray-200 shadow">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                    Nama Barang
+                  </th>
+                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                    Kategori
+                  </th>
+                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                    Harga Barang
+                  </th>
+                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                    Total Barang
+                  </th>
+                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                    Total Harga
+                  </th>
+                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                    Status
+                  </th>
+                  {/* <th scope="col" className="relative py-3 px-6">
+                    <span className="sr-only">Edit</span>
+                  </th> */}
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {transactions.map((transaction) => {
+                  return (
+                    <TableRow
+                      key={transaction.id}
+                      id={transaction.id}
+                      product={transaction.product}
+                      total_item={transaction.total_item}
+                      total_price={transaction.total_price}
+                      status={transaction.status}
+                    />
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
