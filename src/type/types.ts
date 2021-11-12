@@ -1,4 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
+export interface UserTypes {
+  name: string;
+  email: string;
+}
+
 export interface ProductTypes {
   category_id: number;
   created_at: string;
@@ -41,6 +46,7 @@ export interface TransactionTypes {
   total_price: number;
   customer?: string;
   status: string;
+  payment: PaymentTypes;
 }
 
 export interface CheckoutTypes {

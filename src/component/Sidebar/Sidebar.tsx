@@ -1,19 +1,17 @@
 import Cookies from "js-cookie";
-import { useCallback, useEffect, useState } from "react";
-import { getUser } from "src/services/auth";
+import { useEffect, useState } from "react";
+import type { UserTypes } from "src/type/types";
 
 import { Menu } from "./Menu";
 import { Profile } from "./Profile";
 
-export const Sidebar = (props: { active: string }) => {
-  const [user, setUser] = useState({ name: "", email: "" });
+interface SidebarProps {
+  active: string;
+  user: UserTypes;
+}
+
+export const Sidebar = (props: SidebarProps) => {
   const [token, setToken] = useState("");
-
-  const getUserInfo = useCallback(async (token) => {
-    const res = await getUser(token);
-
-    setUser(res.data);
-  }, []);
 
   useEffect(() => {
     const tokenFromLocal = Cookies.get("token");
@@ -22,13 +20,12 @@ export const Sidebar = (props: { active: string }) => {
       const token = Buffer.from(tokenFromLocal, "base64").toString("binary");
 
       setToken(token);
-      getUserInfo(token);
     }
-  }, [getUserInfo]);
+  }, []);
 
   return (
     <div className="w-72 h-screen bg-white">
-      <Profile user={user} />
+      <Profile user={props.user} />
       <Menu active={props.active} token={token} />
     </div>
   );

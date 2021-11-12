@@ -2,8 +2,13 @@ import type { TransactionTypes } from "src/type/types";
 
 import { TableRow } from "./TableRow";
 
-export const Table = (props: { transactions: Array<TransactionTypes> }) => {
-  const { transactions } = props;
+interface TableProps {
+  transactions: Array<TransactionTypes>;
+  isAction?: boolean;
+}
+
+export const Table = (props: Partial<TableProps>) => {
+  const { transactions, isAction } = props;
 
   return (
     <div className="flex flex-col">
@@ -13,6 +18,9 @@ export const Table = (props: { transactions: Array<TransactionTypes> }) => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
+                  <th scope="col" className=" py-3 px-4 text-sm font-medium tracking-wider text-left text-gray-500">
+                    No
+                  </th>
                   <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
                     Nama Barang
                   </th>
@@ -28,16 +36,18 @@ export const Table = (props: { transactions: Array<TransactionTypes> }) => {
                   <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
                     Total Harga
                   </th>
-                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-center text-gray-500">
                     Status
                   </th>
-                  {/* <th scope="col" className="relative py-3 px-6">
-                    <span className="sr-only">Edit</span>
-                  </th> */}
+                  {isAction && (
+                    <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-center text-gray-500">
+                      Action
+                    </th>
+                  )}
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {transactions.map((transaction) => {
+                {transactions?.map((transaction, i) => {
                   return (
                     <TableRow
                       key={transaction.id}
@@ -47,6 +57,8 @@ export const Table = (props: { transactions: Array<TransactionTypes> }) => {
                       total_item={transaction.total_item}
                       total_price={transaction.total_price}
                       status={transaction.status}
+                      no={i + 1}
+                      isAction={isAction}
                     />
                   );
                 })}
