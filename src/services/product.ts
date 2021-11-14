@@ -11,7 +11,7 @@ export const getProducts = async (page?: number) => {
   return res.data;
 };
 
-export const getProductsByCategory = async (category: string | string[], page?: number) => {
+export const getProductsByCategory = async (category: string | string[] | undefined, page?: number) => {
   const url = `${ROOT_API}/products?category=${category}&page=${page}`;
   const res = await axios({ url, method: "GET" }).catch((err: { response: any }) => {
     return err.response;

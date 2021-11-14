@@ -11,7 +11,7 @@ export const CategoryCard = (props: CategoryCardProps) => {
   const { label, slug } = props;
 
   return (
-    <Link href={`/category/${slug}`}>
+    <Link href={`/product?category=${slug}`}>
       <a>
         <div className="w-[200px] h-[250px] rounded-lg shadow-md">
           <div className="flex relative justify-center items-center w-full">

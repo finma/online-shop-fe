@@ -13,8 +13,8 @@ export const Card = (props: CardProps) => {
   const src = `${API_IMG}/${image}`;
 
   return (
-    <a href={`/product/${slug}`} className="mb-8">
-      <div className=" m-auto w-[200px] rounded-2xl">
+    <div className=" mx-4 mb-8 w-[200px] rounded-2xl">
+      <a href={`/product/${slug}`}>
         <div className="m-auto w-full rounded-lg">
           <Image
             loader={() => {
@@ -28,16 +28,16 @@ export const Card = (props: CardProps) => {
             className="object-cover w-full h-full rounded-lg transition duration-200 hover:scale-[1.2]"
           />
         </div>
-        <div className=" rounded-lg">
-          <p className=" mt-1 text-base font-bold text-gray-600">{name}</p>
-          <Rating name="read-only" value={5} readOnly size="small" />
-          <div className=" flex justify-between items-center">
-            <p className="text-gray-800">
-              <NumberFormat value={price} prefix="Rp. " thousandSeparator="." decimalSeparator="," displayType="text" />
-            </p>
-          </div>
+      </a>
+      <div className=" rounded-lg">
+        <p className=" mt-1 text-base font-bold text-gray-600">{name}</p>
+        <Rating name="read-only" value={5} readOnly size="small" />
+        <div className=" flex justify-between items-center">
+          <p className="text-gray-800">
+            <NumberFormat value={price} prefix="Rp. " thousandSeparator="." decimalSeparator="," displayType="text" />
+          </p>
         </div>
       </div>
-    </a>
+    </div>
   );
 };
