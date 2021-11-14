@@ -1,3 +1,4 @@
+import Rating from "@mui/material/Rating";
 import Image from "next/image";
 import NumberFormat from "react-number-format";
 import type { ProductTypes } from "src/type/types";
@@ -12,9 +13,9 @@ export const Card = (props: CardProps) => {
   const src = `${API_IMG}/${image}`;
 
   return (
-    <a href={`/product/${slug}`}>
-      <div className="p-2 m-auto w-48 bg-white rounded-2xl shadow-md">
-        <div className="pt-2 m-auto w-full h-36">
+    <a href={`/product/${slug}`} className="mb-8">
+      <div className=" m-auto w-[200px] rounded-2xl">
+        <div className="m-auto w-full rounded-lg">
           <Image
             loader={() => {
               return src;
@@ -22,13 +23,14 @@ export const Card = (props: CardProps) => {
             unoptimized
             src={src}
             alt={name}
-            width={176}
-            height={136}
-            className="object-cover w-full h-full rounded-lg"
+            width={200}
+            height={250}
+            className="object-cover w-full h-full rounded-lg transition duration-200 hover:scale-[1.2]"
           />
         </div>
         <div className=" rounded-lg">
           <p className=" mt-1 text-base font-bold text-gray-600">{name}</p>
+          <Rating name="read-only" value={5} readOnly size="small" />
           <div className=" flex justify-between items-center">
             <p className="text-gray-800">
               <NumberFormat value={price} prefix="Rp. " thousandSeparator="." decimalSeparator="," displayType="text" />

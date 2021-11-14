@@ -2,7 +2,7 @@ import { useState } from "react";
 import { getProductsByCategory } from "src/services/product";
 import type { ProductTypes } from "src/type/types";
 
-import { Card } from "../Card/Card";
+import { Card } from "./Card";
 
 interface ProductsByCategoryProps {
   products: any;
