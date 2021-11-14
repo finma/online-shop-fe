@@ -11,7 +11,14 @@ export const PaymentItem = (props: PaymentItemProps) => {
 
   return (
     <label htmlFor={payment.no_rekening} onChange={onChange}>
-      <input type="radio" id={payment.no_rekening} value={payment.id} name="paymentMethod" className="hidden" />
+      <input
+        type="radio"
+        id={payment.no_rekening}
+        value={payment.id}
+        name="paymentMethod"
+        className="hidden"
+        required
+      />
       <div className="box-border overflow-hidden relative p-4 w-full rounded-2xl shadow-lg cursor-pointer detail-payment">
         <div className="w-4/6">
           <p className="mb-2 text-lg font-medium text-gray-800">

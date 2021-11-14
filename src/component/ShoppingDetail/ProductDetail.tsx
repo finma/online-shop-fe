@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ReactHtmlParser from "react-html-parser";
 import NumberFormat from "react-number-format";
 import type { ProductTypes } from "src/type/types";
 
@@ -22,7 +23,7 @@ export const ProductDetail = (props: { product: ProductTypes }) => {
           <a className=" font-medium text-blue-500">{product?.category?.name}</a>
         </Link>
       </p>
-      <p className="mt-4 text-base text-gray-600">{product.description}</p>
+      <div className="mt-4 text-base text-gray-600">{ReactHtmlParser(product.description)}</div>
     </>
   );
 };
