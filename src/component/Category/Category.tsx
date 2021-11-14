@@ -18,11 +18,11 @@ export const Category = () => {
   }, [getCategoriesList]);
 
   return (
-    <div className="p-8 mt-2 w-full rounded-xl shadow-md">
-      <h1 className="mb-8 text-2xl font-bold text-center text-gray-700">Kategori</h1>
-      <div className="flex justify-center space-x-4">
+    <div className="pb-6 w-full">
+      <h1 className="mb-8 text-6xl font-bold text-center text-gray-800">Kategori</h1>
+      <div className="flex justify-center space-x-8">
         {categories.map((item: CategoryTypes) => {
-          return <CategoryCard label={item.name} key={item.slug} slug={item.slug} image="1" />;
+          return <CategoryCard label={item.name} key={item.slug} slug={item.slug} />;
         })}
       </div>
     </div>

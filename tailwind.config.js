@@ -12,6 +12,7 @@ module.exports = {
         "pastel-pink": "#FCB9AA",
         "pastel-pink-light": "#FFDBCC",
         "pastel-blue": "#55CBCD",
+        "pastel-white-pink": "#FFEFFF",
       },
     },
   },

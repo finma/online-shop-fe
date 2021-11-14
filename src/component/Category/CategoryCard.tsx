@@ -1,29 +1,31 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import Image from "next/image";
 import Link from "next/link";
 
 interface CategoryCardProps {
   label: string;
-  image: string;
   slug: string;
 }
 
 export const CategoryCard = (props: CategoryCardProps) => {
-  const { label, image, slug } = props;
+  const { label, slug } = props;
 
   return (
     <Link href={`/category/${slug}`}>
       <a>
-        <div className="w-32 h-32 rounded-lg shadow-md">
-          <div className="w-full">
+        <div className="w-[200px] h-[250px] rounded-lg shadow-md">
+          <div className="flex relative justify-center items-center w-full">
+            <h3 className="absolute z-10 py-2 px-6 text-xl font-medium text-center text-gray-700 capitalize bg-white rounded-r-full rounded-l-full shadow-md">
+              {label}
+            </h3>
             <Image
-              src={`/img/${image}.png`}
+              src={`/img/${label}.jpg`}
               alt={label}
-              width={128}
-              height={96}
-              className="object-cover w-full rounded-t-md"
+              width={200}
+              height={250}
+              className="object-cover w-full rounded-lg hover:rounded-lg filter hover:blur-sm transition duration-200 hover:scale-110 contrast-90 brightness-90"
             />
           </div>
-          <h3 className="text-sm font-medium text-center">{label}</h3>
         </div>
       </a>
     </Link>
