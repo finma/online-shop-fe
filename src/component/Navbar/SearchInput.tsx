@@ -23,7 +23,7 @@ export const SearchInput = () => {
           type="search"
           name="serch"
           placeholder="Cari Produk"
-          className="px-4 pl-10 w-full h-10 text-base text-gray-700 bg-gray-50 rounded-r-full rounded-l-full border-none focus:ring-0 shadow-md outline-none"
+          className="px-5 pl-12 w-full h-12 text-base text-gray-700 bg-gray-50 rounded-r-full rounded-l-full border-none focus:ring-0 shadow-md outline-none"
         />
       </div>
     </>
