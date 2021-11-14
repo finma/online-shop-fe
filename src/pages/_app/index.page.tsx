@@ -21,7 +21,7 @@ const App = (props: CustomAppProps) => {
       <ThemeProvider theme={theme}>
         <CartProvider>
           <Head>
-            <title>nexst</title>
+            <title>Zevanyastore</title>
           </Head>
           {getLayout(<Component {...pageProps} />)}
         </CartProvider>

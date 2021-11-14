@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-import { setLogin } from "../../services/auth";
+import { getUser, setLogin } from "../../services/auth";
 
 export const FormLogin = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +24,10 @@ export const FormLogin = () => {
       const token = `${result.content.token_type} ${result.content.access_token}`;
       const tokenBase64 = Buffer.from(token, "binary").toString("base64");
 
+      const user = await getUser(token);
+
       Cookies.set("token", tokenBase64);
+      Cookies.set("user", JSON.stringify(user.data));
       router.push("/");
     }
   };
