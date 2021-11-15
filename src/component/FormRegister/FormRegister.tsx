@@ -3,6 +3,19 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { setRegister } from "src/services/auth";
+import Swal from "sweetalert2";
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener("mouseenter", Swal.stopTimer);
+    toast.addEventListener("mouseleave", Swal.resumeTimer);
+  },
+});
 
 export const FormRegister = () => {
   const [name, setName] = useState("");
@@ -21,6 +34,11 @@ export const FormRegister = () => {
     await setRegister(data);
 
     router.push("/login");
+
+    Toast.fire({
+      icon: "success",
+      title: "Berhasil membuat akun!",
+    });
   };
 
   return (
@@ -30,7 +48,7 @@ export const FormRegister = () => {
         <form>
           <div className="flex flex-col mb-2">
             <div className=" flex relative">
-              <span className="inline-flex items-center px-3 text-sm text-gray-500 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
+              <span className="inline-flex items-center px-3 text-sm text-gray-700 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                 </svg>
@@ -43,14 +61,15 @@ export const FormRegister = () => {
                 onChange={(e) => {
                   return setName(e.target.value);
                 }}
-                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-2 focus:ring-blue-600 shadow-sm appearance-none focus:outline-none"
+                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-yellow-star shadow-sm appearance-none focus:outline-none"
                 placeholder="Nama"
+                required
               />
             </div>
           </div>
           <div className="flex flex-col mb-2">
             <div className=" flex relative">
-              <span className="inline-flex items-center px-3 text-sm text-gray-500 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
+              <span className="inline-flex items-center px-3 text-sm text-gray-700 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
                 <svg
                   width="15"
                   height="15"
@@ -69,14 +88,15 @@ export const FormRegister = () => {
                 onChange={(e) => {
                   return setEmail(e.target.value);
                 }}
-                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-2 focus:ring-blue-600 shadow-sm appearance-none focus:outline-none"
+                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-yellow-star shadow-sm appearance-none focus:outline-none"
                 placeholder="Email"
+                required
               />
             </div>
           </div>
           <div className="flex flex-col mb-6">
             <div className=" flex relative">
-              <span className="inline-flex items-center px-3 text-sm text-gray-500 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
+              <span className="inline-flex items-center px-3 text-sm text-gray-700 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
                 <svg
                   width="15"
                   height="15"
@@ -95,16 +115,17 @@ export const FormRegister = () => {
                 onChange={(e) => {
                   return setPassword(e.target.value);
                 }}
-                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-2 focus:ring-blue-600 shadow-sm appearance-none focus:outline-none"
+                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-yellow-star shadow-sm appearance-none focus:outline-none"
                 placeholder="Password"
+                required
               />
             </div>
           </div>
           <div className="flex w-full">
             <button
               onClick={handleSubmit}
-              type="button"
-              className=" py-2 px-4 w-full text-base font-semibold text-center text-white bg-blue-600 hover:bg-blue-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none"
+              type="submit"
+              className=" py-2 px-4 w-full text-base font-semibold text-center text-black bg-yellow-star rounded-r-full rounded-l-full shadow-md transition duration-200 ease-in focus:outline-none"
             >
               Daftar
             </button>
@@ -113,7 +134,7 @@ export const FormRegister = () => {
       </div>
       <div className="flex justify-center items-center mt-6">
         <Link href="/login">
-          <a className="inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white">
+          <a className="inline-flex items-center text-sm font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white">
             <span className="ml-2">Sudah punya akun? Login.</span>
           </a>
         </Link>

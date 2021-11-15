@@ -3,8 +3,21 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 import { getUser, setLogin } from "../../services/auth";
+
+const Toast = Swal.mixin({
+  toast: true,
+  position: "top-end",
+  showConfirmButton: false,
+  timer: 3000,
+  timerProgressBar: true,
+  didOpen: (toast) => {
+    toast.addEventListener("mouseenter", Swal.stopTimer);
+    toast.addEventListener("mouseleave", Swal.resumeTimer);
+  },
+});
 
 export const FormLogin = () => {
   const [email, setEmail] = useState("");
@@ -20,7 +33,12 @@ export const FormLogin = () => {
 
     const result = await setLogin(data);
 
-    if (!result.error) {
+    if (result.status === "error") {
+      Toast.fire({
+        icon: "error",
+        title: "Isi data dengan benar!",
+      });
+    } else {
       const token = `${result.content.token_type} ${result.content.access_token}`;
       const tokenBase64 = Buffer.from(token, "binary").toString("base64");
 
@@ -29,6 +47,11 @@ export const FormLogin = () => {
       Cookies.set("token", tokenBase64);
       Cookies.set("user", JSON.stringify(user.data));
       router.push("/");
+
+      Toast.fire({
+        icon: "success",
+        title: "Berhasil login!",
+      });
     }
   };
 
@@ -39,7 +62,7 @@ export const FormLogin = () => {
         <form action="#" autoComplete="off">
           <div className="flex flex-col mb-2">
             <div className=" flex relative">
-              <span className="inline-flex items-center px-3 text-sm text-blue-500 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
+              <span className="inline-flex items-center px-3 text-sm text-gray-700 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
                 <svg
                   width="15"
                   height="15"
@@ -58,14 +81,15 @@ export const FormLogin = () => {
                 onChange={(e) => {
                   return setEmail(e.target.value);
                 }}
-                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-2 focus:ring-blue-600 shadow-sm appearance-none focus:outline-none"
+                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-yellow-star shadow-sm appearance-none focus:outline-none"
                 placeholder="Email"
+                required
               />
             </div>
           </div>
           <div className="flex flex-col mb-6">
             <div className=" flex relative">
-              <span className="inline-flex items-center px-3 text-sm text-blue-500 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
+              <span className="inline-flex items-center px-3 text-sm text-gray-700 bg-white rounded-l-md border-t border-b border-l border-gray-300 shadow-sm">
                 <svg
                   width="15"
                   height="15"
@@ -84,8 +108,9 @@ export const FormLogin = () => {
                   return setPassword(e.target.value);
                 }}
                 value={password}
-                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-2 focus:ring-blue-600 shadow-sm appearance-none focus:outline-none"
+                className=" flex-1 py-2 px-4 w-full text-base placeholder-gray-400 text-gray-700 bg-white rounded-r-lg border border-gray-300 focus:border-transparent focus:ring-[#faaf00] shadow-sm appearance-none focus:outline-none"
                 placeholder="Password"
+                required
               />
             </div>
           </div>
@@ -100,9 +125,9 @@ export const FormLogin = () => {
           </div>
           <div className="flex w-full">
             <button
-              type="button"
+              type="submit"
               onClick={handleLogin}
-              className=" py-2 px-4 w-full text-base font-semibold text-center text-white bg-blue-600 hover:bg-blue-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none"
+              className=" py-2 px-4 w-full text-base font-semibold text-center text-black bg-[#faaf00] rounded-r-full rounded-l-full shadow-md transition duration-200 ease-in focus:outline-none"
             >
               Login
             </button>
@@ -111,7 +136,7 @@ export const FormLogin = () => {
       </div>
       <div className="flex justify-center items-center mt-6">
         <Link href="/register">
-          <a className="inline-flex items-center text-xs font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white">
+          <a className="inline-flex items-center text-sm font-thin text-center text-gray-500 hover:text-gray-700 dark:text-gray-100 dark:hover:text-white">
             <span className="ml-2">Belum punya akun? Daftar sekarang.</span>
           </a>
         </Link>

@@ -16,6 +16,7 @@ module.exports = {
         "pastel-blue": "#55CBCD",
         "pastel-blue-light": "#D4F0F0",
         "pastel-white-pink": "#FFEFFF",
+        "yellow-star": "#faaf00",
       },
     },
   },
