@@ -35,7 +35,7 @@ export const Header: VFC = () => {
   }, []);
   return (
     <div className={classActive}>
-      <div className=" container flex py-5 m-auto w-full">
+      <div className=" container flex py-3 m-auto w-full">
         <Logo color={color} />
         <SearchInput />
         <Tooltip />

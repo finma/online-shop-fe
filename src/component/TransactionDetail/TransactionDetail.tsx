@@ -1,5 +1,6 @@
 import cx from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 import { PaymentDetail } from "src/component/TransactionDetail/PaymentDetail";
 import { ProductDetail } from "src/component/TransactionDetail/ProductDetail";
 import type { TransactionTypes, UserTypes } from "src/type/types";
@@ -23,8 +24,7 @@ export const TransactionDetail = (props: TransactionDetailProps) => {
   });
 
   return (
-    <main className="box-border py-16 px-12 w-1/2">
-      <h1 className="text-4xl font-bold text-blue-900">Detail Transaksi</h1>
+    <main className="py-4 px-12 m-auto mb-8 w-3/5">
       <div className="flex justify-between items-center mt-7">
         <div className="flex items-center space-x-5">
           <Image
@@ -34,12 +34,12 @@ export const TransactionDetail = (props: TransactionDetailProps) => {
             unoptimized
             src={src}
             alt="Product Image"
-            width={180}
-            height={130}
+            width={200}
+            height={250}
             className="object-cover w-full h-full rounded-lg"
           />
           <div className="flex flex-col">
-            <span className=" text-2xl font-bold text-gray-700">{props.data.transaction.product.name}</span>
+            <span className=" text-2xl font-bold text-black">{props.data.transaction.product.name}</span>
             <span className="text-lg font-normal text-gray-500">Kategori : {props.data.transaction.category.name}</span>
           </div>
         </div>
@@ -47,6 +47,22 @@ export const TransactionDetail = (props: TransactionDetailProps) => {
       </div>
       <ProductDetail transaction={props.data.transaction} />
       <PaymentDetail payment={props.data.transaction.payment} />
+      <div className="m-auto w-32">
+        <Link href="/transactions">
+          <a className="flex justify-center items-center py-2 px-4 mt-6 text-base font-semibold text-center text-yellow-star bg-gray-800 rounded-r-full rounded-l-full shadow-md transition duration-200 ease-in focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+            </svg>
+            <span className="ml-2">Kembali</span>
+          </a>
+        </Link>
+      </div>
     </main>
   );
 };

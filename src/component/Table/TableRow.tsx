@@ -82,7 +82,7 @@ export const TableRow = (props: TableRowProps) => {
       {isAction && (
         <td className="py-3 px-4 text-base font-medium text-center whitespace-nowrap">
           <a
-            href={`/dashboard/transactions/${id}`}
+            href={`/transactions/${id}`}
             className="py-2 px-4 w-full text-sm font-semibold text-center text-white bg-pastel-blue hover:bg-pastel-blue rounded-r-full rounded-l-full focus:ring-2 focus:ring-pastel-blue focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none"
           >
             Detail
