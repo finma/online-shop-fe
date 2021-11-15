@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/naming-convention */
+import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 
-export const ChekoutDetailPayment = () => {
+export const CheckoutDetailPayment = () => {
   const [transaction, setTransaction] = useState({
     type: "",
     bank_name: "",
@@ -11,7 +12,7 @@ export const ChekoutDetailPayment = () => {
   });
 
   useEffect(() => {
-    const dataFromLocal = localStorage.getItem("transaction");
+    const dataFromLocal = Cookies.get("transaction");
     const data = JSON.parse(dataFromLocal!);
 
     setTransaction(data.transaction.payment_id);
@@ -19,23 +20,23 @@ export const ChekoutDetailPayment = () => {
 
   return (
     <div className="mt-6">
-      <h2 className="text-xl font-bold text-gray-700">Metode Pembayaran</h2>
+      <h2 className="text-xl font-bold text-gray-800">Metode Pembayaran</h2>
       <div className="mt-6 space-y-3">
         <p className="flex justify-between text-lg font-normal">
           <span>Tipe Pembayaran</span>
-          <span>{transaction.type}</span>
+          <span className="font-semibold">{transaction.type}</span>
         </p>
         <p className="flex justify-between text-lg font-normal">
           <span>Nama Bank</span>
-          <span>{transaction.bank_name}</span>
+          <span className="font-semibold">{transaction.bank_name}</span>
         </p>
         <p className="flex justify-between text-lg font-normal">
           <span>Pemilik Rekening</span>
-          <span>{transaction.name}</span>
+          <span className="font-semibold">{transaction.name}</span>
         </p>
         <p className="flex justify-between text-lg font-normal">
           <span>No Rekening</span>
-          <span>{transaction.no_rekening}</span>
+          <span className="font-semibold">{transaction.no_rekening}</span>
         </p>
       </div>
     </div>
