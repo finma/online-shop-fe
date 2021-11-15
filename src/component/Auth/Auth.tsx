@@ -44,7 +44,7 @@ export const Auth = () => {
       <div className=" hidden md:flex justify-end items-center md:w-full">
         <a
           href="/"
-          className="flex items-center p-2 text-sm text-gray-800 hover:text-pastel-pink hover:bg-gray-50 rounded-full transition duration-200 ease-in focus:outline-none"
+          className="flex items-center p-2 text-sm text-gray-800 hover:text-pastel-pink hover:bg-white rounded-full transition duration-200 ease-in focus:outline-none"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ export const Auth = () => {
                 <button
                   onClick={handleIsOpen}
                   type="button"
-                  className=" flex items-center p-2 text-sm text-gray-800 hover:text-pastel-pink hover:bg-gray-50 rounded-full transition duration-200 ease-in focus:outline-none"
+                  className=" flex items-center p-2 text-sm text-gray-800 hover:text-pastel-pink hover:bg-white rounded-full transition duration-200 ease-in focus:outline-none"
                   id="options-menu"
                 >
                   <svg
@@ -86,7 +86,7 @@ export const Auth = () => {
                 <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-md ring-1 ring-black ring-opacity-5 shadow-lg origin-top-right">
                   <div className=" py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     <a
-                      href="/dashboard"
+                      href="/transactions"
                       className=" block py-2 px-4 text-gray-700 hover:text-pastel-pink dark:text-gray-100 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-600"
                       role="menuitem"
                     >
@@ -102,10 +102,10 @@ export const Auth = () => {
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth={2}
-                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                           />
                         </svg>
-                        <span>Dashboard</span>
+                        <span>Transaksi</span>
                       </span>
                     </a>
                     <a

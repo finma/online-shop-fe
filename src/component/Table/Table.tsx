@@ -15,38 +15,35 @@ export const Table = (props: Partial<TableProps>) => {
       <div className="overflow-x-auto -my-2 sm:-mx-6 lg:-mx-8">
         <div className="inline-block py-2 sm:px-6 lg:px-8 min-w-full align-middle">
           <div className="overflow-hidden sm:rounded-lg border-b border-gray-200 shadow">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+            <table className="min-w-full divide-y divide-gray-200 shadow-sm">
+              <thead className="">
                 <tr>
-                  <th scope="col" className=" py-3 px-4 text-sm font-medium tracking-wider text-left text-gray-500">
-                    No
-                  </th>
-                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                  <th scope="col" className=" py-3 px-4 text-lg font-medium tracking-wider text-left text-black">
                     Nama Barang
                   </th>
-                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                  <th scope="col" className=" py-3 px-4 text-lg font-medium tracking-wider text-left text-black">
                     Kategori
                   </th>
-                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                  <th scope="col" className=" py-3 px-4 text-lg font-medium tracking-wider text-left text-black">
                     Harga Barang
                   </th>
-                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                  <th scope="col" className=" py-3 px-4 text-lg font-medium tracking-wider text-left text-black">
                     Total Barang
                   </th>
-                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-left text-gray-500">
+                  <th scope="col" className=" py-3 px-4 text-lg font-medium tracking-wider text-left text-black">
                     Total Harga
                   </th>
-                  <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-center text-gray-500">
+                  <th scope="col" className=" py-3 px-4 text-lg font-medium tracking-wider text-center text-black">
                     Status
                   </th>
                   {isAction && (
-                    <th scope="col" className=" py-3 px-6 text-sm font-medium tracking-wider text-center text-gray-500">
+                    <th scope="col" className=" py-3 px-4 text-lg font-medium tracking-wider text-center text-black">
                       Action
                     </th>
                   )}
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className=" divide-y divide-gray-200">
                 {transactions?.map((transaction, i) => {
                   return (
                     <TableRow

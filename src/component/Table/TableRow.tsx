@@ -16,7 +16,7 @@ interface TableRowProps {
 }
 
 export const TableRow = (props: TableRowProps) => {
-  const { id, no, product, total_item, total_price, status, category, isAction } = props;
+  const { id, product, total_item, total_price, status, category, isAction } = props;
   const API_IMG = process.env.NEXT_PUBLIC_IMG;
   const src = `${API_IMG}/${product.image}`;
   const classStatus = cx({
@@ -28,33 +28,30 @@ export const TableRow = (props: TableRowProps) => {
 
   return (
     <tr>
-      <td className="py-4 px-4 whitespace-nowrap">
-        <div className="text-base text-gray-900">{no}</div>
-      </td>
-      <td className="py-4 px-6 whitespace-nowrap">
+      <td className="py-3 px-4 whitespace-nowrap">
         <div className="flex items-center">
-          <div className="flex-shrink-0 w-20 h-20">
+          <div className="flex-shrink-0">
             <Image
               unoptimized
               loader={() => {
                 return src;
               }}
               src={src}
-              width={80}
-              height={80}
+              width={100}
+              height={130}
               alt="thumbnail"
               className="object-cover w-full h-full rounded-md"
             />
           </div>
           <div className="ml-4">
-            <div className="text-base text-gray-900">{product.name}</div>
+            <div className="text-lg font-medium text-black">{product.name}</div>
           </div>
         </div>
       </td>
-      <td className="py-4 px-6 whitespace-nowrap">
+      <td className="py-3 px-4 whitespace-nowrap">
         <div className="text-base text-gray-900">{category.name}</div>
       </td>
-      <td className="py-4 px-6 whitespace-nowrap">
+      <td className="py-3 px-4 whitespace-nowrap">
         <div className="text-base text-gray-900">
           <NumberFormat
             value={product.price}
@@ -65,10 +62,10 @@ export const TableRow = (props: TableRowProps) => {
           />
         </div>
       </td>
-      <td className="py-4 px-6 whitespace-nowrap">
-        <div className="text-base text-gray-900">{total_item}</div>
+      <td className="py-3 px-4 whitespace-nowrap">
+        <div className="text-base text-center text-gray-900">{total_item}</div>
       </td>
-      <td className="py-4 px-6 whitespace-nowrap">
+      <td className="py-3 px-4 whitespace-nowrap">
         <div className="text-base text-gray-900">
           <NumberFormat
             value={total_price}
@@ -79,14 +76,14 @@ export const TableRow = (props: TableRowProps) => {
           />
         </div>
       </td>
-      <td className="py-4 px-6 text-center whitespace-nowrap">
+      <td className="py-3 px-4 text-center whitespace-nowrap">
         <span className={classStatus}>{status}</span>
       </td>
       {isAction && (
-        <td className="py-4 px-6 text-base font-medium text-right whitespace-nowrap">
+        <td className="py-3 px-4 text-base font-medium text-center whitespace-nowrap">
           <a
             href={`/dashboard/transactions/${id}`}
-            className="py-2 px-5 h-10 text-blue-700 hover:text-blue-100 hover:bg-blue-500 rounded-xl border border-blue-500 transition-colors duration-150"
+            className="py-2 px-4 w-full text-sm font-semibold text-center text-white bg-pastel-blue hover:bg-pastel-blue rounded-r-full rounded-l-full focus:ring-2 focus:ring-pastel-blue focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none"
           >
             Detail
           </a>
