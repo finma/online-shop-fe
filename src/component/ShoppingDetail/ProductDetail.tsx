@@ -1,3 +1,4 @@
+import Rating from "@mui/material/Rating";
 import Link from "next/link";
 import ReactHtmlParser from "react-html-parser";
 import NumberFormat from "react-number-format";
@@ -6,9 +7,10 @@ import type { ProductTypes } from "src/type/types";
 export const ProductDetail = (props: { product: ProductTypes }) => {
   const { product } = props;
   return (
-    <>
-      <h3 className="text-xl font-medium">{product.name}</h3>
-      <p className="text-3xl font-bold text-gray-700">
+    <div className="w-2/3">
+      <h3 className="text-3xl font-medium text-black">{product.name}</h3>
+      <Rating name="read-only" value={5} readOnly size="small" />
+      <p className="text-3xl font-bold text-black">
         <NumberFormat
           value={product.price}
           prefix="Rp. "
@@ -20,10 +22,10 @@ export const ProductDetail = (props: { product: ProductTypes }) => {
       <p className="mt-2 text-base text-gray-600">
         Kategori :{" "}
         <Link href={`/category/${product?.category?.name}`}>
-          <a className=" font-medium text-blue-500">{product?.category?.name}</a>
+          <a className=" font-medium text-pastel-blue">{product?.category?.name}</a>
         </Link>
       </p>
-      <div className="mt-4 text-base text-gray-600">{ReactHtmlParser(product.description)}</div>
-    </>
+      <div className="mt-4 text-lg text-gray-800">{ReactHtmlParser(product.description)}</div>
+    </div>
   );
 };

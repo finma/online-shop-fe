@@ -9,8 +9,8 @@ export const Footer: VFC = () => {
       <div className="px-4 sm:px-6 md:px-8 mx-auto max-w-screen-lg xl:max-w-screen-xl text-gray-500 dark:text-gray-300">
         <ul className="flex flex-wrap justify-center pb-8 text-lg font-light">
           <li className="w-1/2 md:w-1/3 lg:w-1/3">
-            <div className="text-center">
-              <h2 className="mb-4 font-bold text-gray-500 dark:text-gray-200 uppercase">Layanan Pelanggan</h2>
+            <div className=" text-center text-gray-800">
+              <h2 className="mb-4 font-bold dark:text-gray-200 uppercase">Layanan Pelanggan</h2>
               <ul>
                 <li className="mb-4 hover:text-pastel-pink-dark dark:hover:text-white transition-colors duration-200">
                   <a href="/">Bantuan</a>
@@ -25,8 +25,8 @@ export const Footer: VFC = () => {
             </div>
           </li>
           <li className="w-1/2 md:w-1/3 lg:w-1/3">
-            <div className="text-center">
-              <h2 className="mb-4 font-bold text-gray-500 dark:text-gray-200 uppercase">Zevanyastore</h2>
+            <div className="text-center text-gray-800">
+              <h2 className="mb-4 font-bold dark:text-gray-200 uppercase">Zevanyastore</h2>
               <ul>
                 <li className="mb-4 hover:text-pastel-pink-dark dark:hover:text-white transition-colors duration-200">
                   <a href="/">Tentang Kami</a>
@@ -41,8 +41,8 @@ export const Footer: VFC = () => {
             </div>
           </li>
           <li className="w-1/2 md:w-1/3 lg:w-1/3">
-            <div className="text-center">
-              <h2 className="mb-4 font-bold text-gray-500 dark:text-gray-200 uppercase">Bantuan dan Panduan</h2>
+            <div className="text-center text-gray-800">
+              <h2 className="mb-4 font-bold dark:text-gray-200 uppercase">Bantuan dan Panduan</h2>
               <ul>
                 <li className="mb-4 hover:text-pastel-pink-dark dark:hover:text-white transition-colors duration-200">
                   <a href="/">Hubungi Kami</a>
@@ -57,7 +57,7 @@ export const Footer: VFC = () => {
             </div>
           </li>
         </ul>
-        <div className="flex justify-center items-center pt-8 mx-auto space-x-12 max-w-xs border-t border-gray-200">
+        <div className="flex justify-center items-center pt-8 mx-auto space-x-12 max-w-xs text-gray-800 border-t border-gray-200">
           <a href="/">
             <svg
               width="25"

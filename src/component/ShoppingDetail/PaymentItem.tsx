@@ -19,13 +19,13 @@ export const PaymentItem = (props: PaymentItemProps) => {
         className="hidden"
         required
       />
-      <div className="box-border overflow-hidden relative p-4 w-full rounded-2xl shadow-lg cursor-pointer detail-payment">
-        <div className="w-4/6">
-          <p className="mb-2 text-lg font-medium text-gray-800">
+      <div className="box-border overflow-hidden relative p-4 mb-3 w-full bg-gray-50 rounded-2xl shadow-inner cursor-pointer detail-payment">
+        <div className="w-4/6 text-gray-800">
+          <p className=" mb-2 text-lg font-semibold">
             {payment.type} | {payment.bank_name}
           </p>
-          <p className="text-sm text-gray-400">{payment.name}</p>
-          <p className="text-xl font-medium text-indigo-500">{payment.no_rekening}</p>
+          <p className=" text-base">{payment.name}</p>
+          <p className=" text-xl font-semibold">{payment.no_rekening}</p>
         </div>
       </div>
     </label>

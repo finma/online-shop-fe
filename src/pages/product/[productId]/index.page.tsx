@@ -11,26 +11,31 @@ const Index = (props: { product: ProductTypes }) => {
   const API_IMG = process.env.NEXT_PUBLIC_IMG;
   const src = `${API_IMG}/${product.image}`;
   return (
-    <div className="grid md:grid-cols-3 gap-2 mt-10">
-      <div className="w-full">
-        <Image
-          loader={() => {
-            return src;
-          }}
-          src={src}
-          alt="kucing"
-          className="object-cover w-full rounded-xl"
-          width={400}
-          height={260}
-        />
+    <>
+      <div className="grid md:grid-cols-2 gap-2 my-10 font-favfont">
+        <div className="flex justify-center w-full">
+          <div>
+            <Image
+              loader={() => {
+                return src;
+              }}
+              src={src}
+              alt="kucing"
+              className="object-cover rounded-xl"
+              width={300}
+              height={400}
+              unoptimized
+            />
+          </div>
+        </div>
+        <div className="">
+          <ProductDetail product={props.product} />
+        </div>
       </div>
-      <div className="p-4 w-full">
-        <ProductDetail product={props.product} />
-      </div>
-      <div className="w-full">
+      <div className=" flex justify-center my-8">
         <ShoppingDetail product={props.product} />
       </div>
-    </div>
+    </>
   );
 };
 

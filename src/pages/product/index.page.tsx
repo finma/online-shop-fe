@@ -35,7 +35,7 @@ const Index = (props: IndexProps) => {
       <Products products={products} search category={router.query.category} />
       <div className="flex justify-center mb-12">
         <Link href="/">
-          <a className="flex py-2 px-4 w-28 text-left text-white dark:text-gray-100 dark:hover:text-white bg-pastel-blue dark:hover:bg-gray-600 rounded-r-full rounded-l-full">
+          <a className="flex py-2 px-4 w-28 text-left text-black dark:text-gray-100 dark:hover:text-white bg-[#faaf00] dark:hover:bg-gray-600 rounded-r-full rounded-l-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-6 h-6"

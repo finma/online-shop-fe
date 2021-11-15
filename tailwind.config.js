@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     fontFamily: {
       pacifico: ['"Pacifico"', "cursive"],
+      favfont: ['"Favfont"'],
       sans: ['"Metrophobic"', "sans-serif"],
     },
     extend: {
