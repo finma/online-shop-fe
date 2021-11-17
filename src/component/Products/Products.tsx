@@ -18,9 +18,6 @@ export const Products = (props: ProductsProps) => {
         {props.products.map((item: ProductTypes) => {
           return <Card product={item} key={item.id} />;
         })}
-        {props.products.map((item: ProductTypes) => {
-          return <Card product={item} key={item.id} />;
-        })}
       </div>
     </div>
   );

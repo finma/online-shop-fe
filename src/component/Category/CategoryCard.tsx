@@ -2,16 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-interface CategoryCardProps {
-  label: string;
-  slug: string;
-}
-
-export const CategoryCard = (props: CategoryCardProps) => {
-  const { label, slug } = props;
+export const CategoryCard = (props: { label: string }) => {
+  const { label } = props;
 
   return (
-    <Link href={`/product?category=${slug}`}>
+    <Link href={`/product?category=${label}`}>
       <a>
         <div className="w-[200px] h-[250px] rounded-lg shadow-md">
           <div className="flex relative justify-center items-center w-full">

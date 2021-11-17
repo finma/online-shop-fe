@@ -15,10 +15,6 @@ const nextConfig = {
   images: {
     domains: ["*"],
   },
-  env: {
-    NEXT_PUBLIC_API: "http://localhost:8000",
-    NEXT_PUBLIC_IMG: "http://localhost:8000/storage",
-  },
 };
 
 module.exports = nextConfig;

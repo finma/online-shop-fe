@@ -1,4 +1,5 @@
 import cx from "classnames";
+import Link from "next/link";
 
 export const Logo = (props: { color: string }) => {
   const classActive = cx({
@@ -10,9 +11,9 @@ export const Logo = (props: { color: string }) => {
     <>
       <div className="flex items-center py-2 w-1/5">
         <div className=" hidden md:flex w-full text-gray-800">
-          <a href="/" className={classActive}>
-            Zevanyastore
-          </a>
+          <Link href="/">
+            <a className={classActive}>Zevanyastore</a>
+          </Link>
         </div>
       </div>
     </>

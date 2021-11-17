@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import cx from "classnames";
 import Image from "next/image";
+import Link from "next/link";
 import NumberFormat from "react-number-format";
 import type { CategoryTypes, ProductTypes } from "src/type/types";
 
@@ -81,12 +82,11 @@ export const TableRow = (props: TableRowProps) => {
       </td>
       {isAction && (
         <td className="py-3 px-4 text-base font-medium text-center whitespace-nowrap">
-          <a
-            href={`/transactions/${id}`}
-            className="py-2 px-4 w-full text-sm font-semibold text-center text-white bg-pastel-blue hover:bg-pastel-blue rounded-r-full rounded-l-full focus:ring-2 focus:ring-pastel-blue focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none"
-          >
-            Detail
-          </a>
+          <Link href={`/transactions/${id}`}>
+            <a className="py-2 px-4 w-full text-sm font-semibold text-center text-white bg-pastel-blue hover:bg-pastel-blue rounded-r-full rounded-l-full focus:ring-2 focus:ring-pastel-blue focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none">
+              Detail
+            </a>
+          </Link>
         </td>
       )}
     </tr>

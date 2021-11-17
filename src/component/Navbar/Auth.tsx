@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable tailwindcss/no-custom-classname */
 import Cookies from "js-cookie";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
@@ -42,25 +43,24 @@ export const Auth = () => {
   if (isLogin) {
     return (
       <div className=" hidden md:flex justify-end items-center md:w-full">
-        <a
-          href="/"
-          className="flex items-center p-2 text-sm text-gray-800 hover:text-pastel-pink hover:bg-white rounded-full transition duration-200 ease-in focus:outline-none"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-7 h-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          </svg>
-        </a>
+        <Link href="/">
+          <a className="flex items-center p-2 text-sm text-gray-800 hover:text-pastel-pink hover:bg-white rounded-full transition duration-200 ease-in focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-7 h-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+          </a>
+        </Link>
         <div className="flex items-center">
           <div className="relative">
             <div className="inline-block relative text-left">
@@ -85,52 +85,54 @@ export const Auth = () => {
               {isOpen && (
                 <div className="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-md ring-1 ring-black ring-opacity-5 shadow-lg origin-top-right">
                   <div className=" py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                    <a
-                      href="/transactions"
-                      className=" block py-2 px-4 text-gray-700 hover:text-pastel-pink dark:text-gray-100 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-600"
-                      role="menuitem"
-                    >
-                      <span className="flex space-x-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="w-6 h-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                          />
-                        </svg>
-                        <span>Transaksi</span>
-                      </span>
-                    </a>
-                    <a
-                      href="/"
-                      className="block py-2 px-4 text-gray-700 hover:text-pastel-pink dark:text-gray-100 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-600"
-                      role="menuitem"
-                    >
-                      <span className="flex space-x-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="w-6 h-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                          />
-                        </svg>
-                        <span>Akun</span>
-                      </span>
-                    </a>
+                    <Link href="/transactions">
+                      <a
+                        className=" block py-2 px-4 text-gray-700 hover:text-pastel-pink dark:text-gray-100 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-600"
+                        role="menuitem"
+                      >
+                        <span className="flex space-x-2">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-6 h-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                            />
+                          </svg>
+                          <span>Transaksi</span>
+                        </span>
+                      </a>
+                    </Link>
+                    <Link href="/">
+                      <a
+                        className="block py-2 px-4 text-gray-700 hover:text-pastel-pink dark:text-gray-100 dark:hover:text-white hover:bg-gray-50 dark:hover:bg-gray-600"
+                        role="menuitem"
+                      >
+                        <span className="flex space-x-2">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-6 h-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            />
+                          </svg>
+                          <span>Akun</span>
+                        </span>
+                      </a>
+                    </Link>
                     <button
                       type="button"
                       onClick={handleLogout}
@@ -167,18 +169,16 @@ export const Auth = () => {
 
   return (
     <div className="space-x-2">
-      <a
-        href="/login"
-        className="py-2 px-4 w-full text-sm font-semibold text-center text-pastel-blue bg-white hover:bg-gray-50 rounded-r-full rounded-l-full shadow-md transition duration-200 ease-in focus:outline-none"
-      >
-        Masuk
-      </a>
-      <a
-        href="/register"
-        className=" py-2 px-4 w-full text-sm font-semibold text-center text-white bg-pastel-blue hover:bg-pastel-blue rounded-r-full rounded-l-full focus:ring-2 focus:ring-pastel-blue focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none"
-      >
-        Daftar
-      </a>
+      <Link href="/login">
+        <a className="py-2 px-4 w-full text-sm font-semibold text-center text-pastel-blue bg-white hover:bg-gray-50 rounded-r-full rounded-l-full shadow-md transition duration-200 ease-in focus:outline-none">
+          Masuk
+        </a>
+      </Link>
+      <Link href="/register">
+        <a className=" py-2 px-4 w-full text-sm font-semibold text-center text-white bg-pastel-blue hover:bg-pastel-blue rounded-r-full rounded-l-full focus:ring-2 focus:ring-pastel-blue focus:ring-offset-2 focus:ring-offset-blue-200 shadow-md transition duration-200 ease-in focus:outline-none">
+          Daftar
+        </a>
+      </Link>
     </div>
   );
 };

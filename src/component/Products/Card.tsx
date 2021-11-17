@@ -1,5 +1,6 @@
 import Rating from "@mui/material/Rating";
 import Image from "next/image";
+import Link from "next/link";
 import NumberFormat from "react-number-format";
 import type { ProductTypes } from "src/type/types";
 
@@ -14,21 +15,23 @@ export const Card = (props: CardProps) => {
 
   return (
     <div className=" mx-4 mb-8 w-[200px] rounded-2xl">
-      <a href={`/product/${slug}`}>
-        <div className="m-auto w-full rounded-lg">
-          <Image
-            loader={() => {
-              return src;
-            }}
-            unoptimized
-            src={src}
-            alt={name}
-            width={200}
-            height={250}
-            className="object-cover w-full h-full rounded-lg transition duration-200 hover:scale-[1.2]"
-          />
-        </div>
-      </a>
+      <Link href={`/product/${slug}`}>
+        <a>
+          <div className="m-auto w-full rounded-lg">
+            <Image
+              loader={() => {
+                return src;
+              }}
+              unoptimized
+              src={src}
+              alt={name}
+              width={200}
+              height={250}
+              className="object-cover w-full h-full rounded-lg transition duration-200 hover:scale-[1.2]"
+            />
+          </div>
+        </a>
+      </Link>
       <div className=" rounded-lg">
         <p className=" mt-1 text-base font-bold text-gray-600">{name}</p>
         <Rating name="read-only" value={5} readOnly size="small" />
