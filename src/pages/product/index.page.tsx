@@ -1,30 +1,30 @@
 import type { GetServerSideProps } from "next";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import { Products } from "src/component/Products/Products";
 import { FluidLayout } from "src/layout";
-import { getProductsByCategory } from "src/services/product";
-import type { CategoryTypes, ProductTypes } from "src/type/types";
+import { getProductsByCategory, getProductsBySearch } from "src/services/product";
+import type { ProductTypes } from "src/type/types";
 
 interface IndexProps {
   products: Array<ProductTypes>;
-  categories: Array<CategoryTypes>;
+  query: {
+    category: string;
+    search: string;
+  };
 }
 
 const Index = (props: IndexProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [products, setProducts] = useState<Array<ProductTypes>>([]);
 
-  const router = useRouter();
-
   useEffect(() => {
     if (props.products) {
       setProducts(props.products);
       setIsLoading(false);
     }
-  }, [props.categories, props.products]);
+  }, [props.products]);
 
   return isLoading ? (
     <div className="flex justify-center items-center">
@@ -32,7 +32,7 @@ const Index = (props: IndexProps) => {
     </div>
   ) : (
     <>
-      <Products products={products} search category={router.query.category} />
+      <Products products={products} query={props.query} />
       <div className="flex justify-center mb-12">
         <Link href="/">
           <a className="flex py-2 px-4 w-28 text-left text-black dark:text-gray-100 dark:hover:text-white bg-[#faaf00] dark:hover:bg-gray-600 rounded-r-full rounded-l-full">
@@ -54,11 +54,22 @@ const Index = (props: IndexProps) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const productsBySearch = await getProductsBySearch(query.search);
+
+  if (productsBySearch.data.data.length > 0) {
+    return {
+      props: {
+        products: productsBySearch.data.data,
+        query,
+      },
+    };
+  }
+
   const products = await getProductsByCategory(query.category);
 
   return {
     props: {
-      products: products.data.data,
+      products: products.data.data || productsBySearch.data.data,
       query,
     },
   };

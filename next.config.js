@@ -15,6 +15,10 @@ const nextConfig = {
   images: {
     domains: ["*"],
   },
+  env: {
+    NEXT_PUBLIC_API: "http://online-shop.test",
+    NEXT_PUBLIC_IMG: "http://online-shop.test/storage",
+  },
 };
 
 module.exports = nextConfig;
