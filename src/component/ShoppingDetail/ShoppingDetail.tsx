@@ -58,7 +58,7 @@ export const ShoppingDetail = (props: { product: any }) => {
 
   const handleCart = () => {
     addItem(product, counter);
-    router.push("/");
+    router.push("/cart");
   };
 
   const handleSubmit = () => {

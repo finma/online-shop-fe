@@ -15,7 +15,8 @@ export interface ProductTypes {
   slug: string;
   stock: number;
   updated_at: string;
-  category?: CategoryTypes;
+  category: CategoryTypes;
+  quantity?: number;
 }
 
 export interface PaymentTypes {

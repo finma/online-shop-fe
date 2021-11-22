@@ -4,7 +4,7 @@ import { Card } from "./Card";
 
 interface ProductsProps {
   products: Array<ProductTypes>;
-  query: {
+  query?: {
     category: string;
     search: string;
   };

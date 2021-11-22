@@ -43,7 +43,7 @@ export const Auth = () => {
   if (isLogin) {
     return (
       <div className=" hidden md:flex justify-end items-center md:w-full">
-        <Link href="/">
+        <Link href="/cart">
           <a className="flex items-center p-2 text-sm text-gray-800 hover:text-pastel-pink hover:bg-white rounded-full transition duration-200 ease-in focus:outline-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
